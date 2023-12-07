@@ -1,66 +1,51 @@
-## Foundry
+Game Item Smart Contract
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This smart contract is designed to create an ERC1155 token system where each wallet can possess one of the main tokens, and these main tokens are soulbound. Additionally, many item tokens can be transacted between wallets that possess the soulbound main token.
+Setup
 
-Foundry consists of:
+To set up this contract, you will need the following:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+Deployment
 
-## Documentation
+Install Foundry by running the bash command
 
-https://book.getfoundry.sh/
+    curl -L https://foundry.paradigm.xyz | bash
 
-## Usage
+    foundryup
 
-### Build
+Clone the repository:
 
-```shell
-$ forge build
-```
+    git clone https://github.com/the-first-elder/Gamer-Token-ERC1155.git
 
-### Test
+Install dependencies:
 
-```shell
-$ forge test
-```
+    cd Gamer_ERC1155
 
-### Format
+    forge install
 
-```shell
-$ forge fmt
-```
+<!-- A Solidity development environment Visual Studio Code.
+The OpenZeppelin library, which provides implementations of standards like ERC20 and ERC1155.
+Test ETH in your wallet for the deployment. -->
 
-### Gas Snapshots
+Contract Overview
 
-```shell
-$ forge snapshot
-```
+The smart contract consists of two main types of tokens:
 
-### Anvil
+    Main Token: This token represents a character in the game context. The main token is soulbound, meaning it is unique to each wallet that owns it.
 
-```shell
-$ anvil
-```
+    Item Tokens: These tokens can only be transacted between wallets that possess the main token. To enforce this rule, the safeTransferFrom function is overridden to check if the recipient has the main token before allowing the transfer They Include EARTH, WATER, FIRE.
 
-### Deploy
+Usage
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+To interact with the contract, you can call the following functions:
 
-### Cast
+    mintSoulBound(bytes data): This function returns the balance of a specific token id for a given account.
 
-```shell
-$ cast <subcommand>
-```
+    sendOtherTokens(to, id, amount, data): This function transfers a specified amount of a specific token from one address to another, and includes optional data that can be used to execute additional functionality on the receiving end.
 
-### Help
+License
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+Acknowledgements
+
+This project was created as part of the Blockchain Developer Bootcamp by Phind.
