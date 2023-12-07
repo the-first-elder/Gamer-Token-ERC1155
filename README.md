@@ -19,7 +19,7 @@ Clone the repository:
 
 Install dependencies:
 
-    cd Gamer_ERC1155
+    cd Gamer-Token-ERC1155
 
     forge install
 
