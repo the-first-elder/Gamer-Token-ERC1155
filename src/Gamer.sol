@@ -88,4 +88,4 @@ contract Gamer is ERC1155, ReentrancyGuard {
 //     function mintOtherTokens(uint256 id, uint256 value, bytes memory data) public {
 //         super._mint(msg.sender, id, value, data);
 //     }
-// }
+}
