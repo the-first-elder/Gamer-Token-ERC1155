@@ -31,6 +31,12 @@ Contract Overview
 
 The smart contract consists of two main types of tokens:
 
+The Contract Address Can be found on sepolia testnet at :
+
+    0x2229a0BdB19E347e1De3C7eB68aC4D13A0b27325
+
+Other Info:
+
     Main Token: This token represents a character in the game context. The main token is soulbound, meaning it is unique to each wallet that owns it.
 
     Item Tokens: These tokens can only be transacted between wallets that possess the main token. To enforce this rule, the safeTransferFrom function is overridden to check if the recipient has the main token before allowing the transfer They Include EARTH, WATER, FIRE.
